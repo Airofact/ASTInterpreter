@@ -8,13 +8,30 @@ using Microsoft.Extensions.Logging;
 
 namespace ASTInterpreter
 {
-	internal class Logger
+	public static class Logger
 	{
-		private static ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
-		{
-			builder.AddConsole();
-		});
+		private static readonly ILogger _logger;
 
-		public static ILogger<T> CreateLogger<T>() => loggerFactory.CreateLogger<T>();
+		static Logger()
+		{
+			ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
+			{
+				builder.AddConsole();
+			});
+			_logger = loggerFactory.CreateLogger("AstInterpreter");
+		}
+
+		public static void Info(string message)
+		{
+			_logger.LogInformation(message);
+		}
+		public static void Warn(string message)
+		{
+			_logger.LogWarning(message);
+		}
+		public static void Error(string message)
+		{
+			_logger.LogError(message);
+		}
 	}
 }

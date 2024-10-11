@@ -17,19 +17,19 @@ namespace ASTInterpreter
 			this.column = column;
 		}
 
-		public void moveLeft()
+		public void MoveLeft()
 		{
 			column--;
 		}
-		public void moveRight()
+		public void MoveRight()
 		{
 			column++;
 		}
-		public void moveUp()
+		public void MoveUp()
 		{
 			line--;
 		}
-		public void moveDown()
+		public void MoveDown()
 		{
 			line++;
 		}

@@ -8,10 +8,10 @@ namespace ASTInterpreter
 {
 	public class Token
 	{
-		private TokenType type;
-		private String lexeme;
-		private Object? literal;
-		private Position position;
+		private readonly TokenType type;
+		private readonly String lexeme;
+		private readonly Object? literal;
+		private readonly Position position;
 
 		public Token(TokenType type, String lexeme, Object? literal, Position position)
 		{
@@ -25,7 +25,12 @@ namespace ASTInterpreter
 	public enum TokenType
 	{
 		LEFT_PAREN, RIGHT_PAREN, LEFT_BRACE, RIGHT_BRACE,
-		COMMA, DOT, MINUS, PLUS, SEMICOLON, SLASH, STAR, CARET,
+		COMMA, DOT, SEMICOLON, 
+
+		MINUS, MINUS_EQUAL,
+		PLUS, PLUS_EQUAL,
+		SLASH, SLASH_EQUAL,
+		STAR, STAR_EQUAL,
 
 		BANG, BANG_EQUAL,
 		EQUAL, EQUAL_EQUAL,
@@ -33,6 +38,8 @@ namespace ASTInterpreter
 		LESS, LESS_EQUAL,
 
 		IDENTIFIER, STRING, NUMBER,
+
+		FUNCTION, CLASS, LOCAL, CONST, IF, ELSE, WHILE, FOR, RETURN, BREAK, CONTINUE, TRUE, FALSE, NIL,
 
 		EOF
 	}
